@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: projectgroup1-coen
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: projectgroup1-coen
+  project: default
+  source:
+    path: simpleSlideShow/overlays/coen/
+    repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

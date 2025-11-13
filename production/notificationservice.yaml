@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: projectgroup1-prod-notificationservice
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: projectgroup1-prod
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/InHolland-Cloud-Minor-2526/Group1-NotificationService
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

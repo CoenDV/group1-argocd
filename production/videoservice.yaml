@@ -9,7 +9,7 @@ spec:
     namespace: projectgroup1-prod
   project: default
   source:
-    path: VideoService/base/
+    path: VideoService/overlays/prod/
     repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
     targetRevision: main
   syncPolicy:

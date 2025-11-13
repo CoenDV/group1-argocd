@@ -1,18 +1,33 @@
----
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  name: projectgroup1-prod-userservice
+  name: projectgroup1-microservices
+  namespace: argocd
 spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: projectgroup1-prod
-  project: default
-  source:
-    path: UserService/base/
-    repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  generators:
+    # Git generator scant submappen in je repo
+    - git:
+        repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git # <-- jouw kustomize repo
+        revision: main
+        directories:
+          - path: "*/*" # zoekt alle overlays onder elke service
+  template:
+    metadata:
+      # voorbeeld: chatservice-dev  of  videoservice-main
+      name: "{{path.basename}}-{{path.dirbasename}}"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
+        targetRevision: main
+        path: "{{path}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: >-
+          {{if eq (path.dirbasename) "dev"}}projectgroup1-test{{else}}projectgroup1-prod{{end}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

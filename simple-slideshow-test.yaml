@@ -9,9 +9,9 @@ spec:
     namespace: projectgroup1-coen
   project: default
   source:
-    path: simpleSlideShow/overlays/coen/
-    repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
-    targetRevision: main
+    path: VideoService/base/
+    repoURL: https://github.com/InHolland-Cloud-Minor-2526/Group1-App22Deploy.git
+    targetRevision: dev
   syncPolicy:
     automated:
       prune: true

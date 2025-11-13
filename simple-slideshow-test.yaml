@@ -10,8 +10,8 @@ spec:
   project: default
   source:
     path: VideoService/base/
-    repoURL: https://github.com/InHolland-Cloud-Minor-2526/Group1-App22Deploy.git
-    targetRevision: dev
+    repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true

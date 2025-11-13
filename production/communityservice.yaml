@@ -9,8 +9,8 @@ spec:
     namespace: projectgroup1-prod
   project: default
   source:
-    path: .
-    repoURL: https://github.com/InHolland-Cloud-Minor-2526/Group1-CommunityService
+    path: CommunityService/base/
+    repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
     targetRevision: main
   syncPolicy:
     automated:

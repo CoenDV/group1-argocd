@@ -24,7 +24,7 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: >-
-          {{if eq (path.dirbasename) "dev"}}projectgroup1-test{{else}}projectgroup1-prod{{end}}
+          {{if eq (path.dirbasename) "test"}}projectgroup1-test{{else}}projectgroup1-prod{{end}}
       syncPolicy:
         automated:
           prune: true

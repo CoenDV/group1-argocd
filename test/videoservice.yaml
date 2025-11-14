@@ -9,8 +9,8 @@ spec:
     namespace: projectgroup1-test
   project: default
   source:
-    path: .
-    repoURL: https://github.com/InHolland-Cloud-Minor-2526/Group1-VideoService
+    path: VideoService/overlays/test/
+    repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
     targetRevision: dev
   syncPolicy:
     automated:

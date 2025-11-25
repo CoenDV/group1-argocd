@@ -6,7 +6,7 @@
 #   project: default
 
 #   source:
-#     repoURL: https://github.com/CoenDV/simpleSlideshow-deploy.git
+#     repoURL: https://github.com/coendv/simpleSlideshow-deploy.git
 #     targetRevision: main
 #     path: overlays/test
 
